@@ -1,0 +1,17 @@
+model: lightgbm
+random_state: 42
+test_size: 0.2
+params:
+  n_estimators: 209
+  learning_rate: 0.010936151436966648
+  num_leaves: 16
+  max_depth: 10
+  min_child_samples: 25
+  subsample: 0.6119217024426536
+  colsample_bytree: 0.9982362249940462
+risk_threshold:
+  high: 0.21
+  watch: 0.15
+mlflow:
+  experiment_name: student-risk-prediction
+  tracking_uri: sqlite:///mlflow.db

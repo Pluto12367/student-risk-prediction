@@ -1,0 +1,18 @@
+# 数据与实验产物 (不入库, 保证复现流程)
+data/raw/
+data/processed/
+mlruns/
+mlflow.db
+mlartifacts/
+reports/figures/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE / 系统
+.idea/
+.vscode/
+.DS_Store

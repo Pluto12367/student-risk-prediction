@@ -1,0 +1,12 @@
+{
+  "failures": 0.561,
+  "course_por": 0.431,
+  "school_MS": 0.262,
+  "absences": 0.2,
+  "goout": 0.086,
+  "Fedu": 0.068,
+  "higher_yes": 0.068,
+  "traveltime": 0.062,
+  "guardian_mother": 0.06,
+  "sex_M": 0.057
+}

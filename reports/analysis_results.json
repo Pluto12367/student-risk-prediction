@@ -1,0 +1,231 @@
+{
+  "n": 1044,
+  "g3": {
+    "mean": 11.3,
+    "median": 11.0,
+    "std": 3.9,
+    "min": 0,
+    "max": 20
+  },
+  "risk": {
+    "正常": 510,
+    "关注": 304,
+    "高危": 230
+  },
+  "risk_pct": {
+    "正常": "49%",
+    "关注": "29%",
+    "高危": "22%"
+  },
+  "high_rate": "22%",
+  "failures": [
+    {
+      "failures": 0,
+      "n": 861,
+      "high_rate": 15.0,
+      "g3_mean": 12.1
+    },
+    {
+      "failures": 1,
+      "n": 120,
+      "high_rate": 48.3,
+      "g3_mean": 8.4
+    },
+    {
+      "failures": 2,
+      "n": 33,
+      "high_rate": 66.7,
+      "g3_mean": 7.5
+    },
+    {
+      "failures": 3,
+      "n": 30,
+      "high_rate": 70.0,
+      "g3_mean": 6.8
+    }
+  ],
+  "studytime": [
+    {
+      "studytime": 1,
+      "n": 317,
+      "high_rate": 27.4,
+      "g3_mean": 10.6
+    },
+    {
+      "studytime": 2,
+      "n": 503,
+      "high_rate": 22.1,
+      "g3_mean": 11.3
+    },
+    {
+      "studytime": 3,
+      "n": 162,
+      "high_rate": 14.2,
+      "g3_mean": 12.5
+    },
+    {
+      "studytime": 4,
+      "n": 62,
+      "high_rate": 14.5,
+      "g3_mean": 12.3
+    }
+  ],
+  "higher": [
+    {
+      "higher": "no",
+      "n": 89,
+      "high_rate": 51.7,
+      "g3_mean": 8.3
+    },
+    {
+      "higher": "yes",
+      "n": 955,
+      "high_rate": 19.3,
+      "g3_mean": 11.6
+    }
+  ],
+  "internet": [
+    {
+      "internet": "no",
+      "n": 217,
+      "high_rate": 26.7,
+      "g3_mean": 10.5
+    },
+    {
+      "internet": "yes",
+      "n": 827,
+      "high_rate": 20.8,
+      "g3_mean": 11.6
+    }
+  ],
+  "school": [
+    {
+      "school": "GP",
+      "n": 772,
+      "high_rate": 18.8,
+      "g3_mean": 11.6
+    },
+    {
+      "school": "MS",
+      "n": 272,
+      "high_rate": 31.2,
+      "g3_mean": 10.5
+    }
+  ],
+  "course": [
+    {
+      "course": "mat",
+      "n": 395,
+      "high_rate": 32.9,
+      "g3_mean": 10.4
+    },
+    {
+      "course": "por",
+      "n": 649,
+      "high_rate": 15.4,
+      "g3_mean": 11.9
+    }
+  ],
+  "sex": [
+    {
+      "sex": "F",
+      "n": 591,
+      "high_rate": 21.2,
+      "g3_mean": 11.4
+    },
+    {
+      "sex": "M",
+      "n": 453,
+      "high_rate": 23.2,
+      "g3_mean": 11.2
+    }
+  ],
+  "paid": [
+    {
+      "paid": "no",
+      "n": 824,
+      "high_rate": 20.6,
+      "g3_mean": 11.4
+    },
+    {
+      "paid": "yes",
+      "n": 220,
+      "high_rate": 27.3,
+      "g3_mean": 11.0
+    }
+  ],
+  "romantic": [
+    {
+      "romantic": "no",
+      "n": 673,
+      "high_rate": 19.6,
+      "g3_mean": 11.6
+    },
+    {
+      "romantic": "yes",
+      "n": 371,
+      "high_rate": 26.4,
+      "g3_mean": 10.8
+    }
+  ],
+  "absences": [
+    {
+      "abs_bin": "0次",
+      "n": 359,
+      "high_rate": 23.4,
+      "g3_mean": 10.9
+    },
+    {
+      "abs_bin": "1-5次",
+      "n": 368,
+      "high_rate": 16.6,
+      "g3_mean": 11.9
+    },
+    {
+      "abs_bin": "6-15次",
+      "n": 263,
+      "high_rate": 24.7,
+      "g3_mean": 11.4
+    },
+    {
+      "abs_bin": "16次以上",
+      "n": 54,
+      "high_rate": 37.0,
+      "g3_mean": 10.3
+    }
+  ],
+  "corr_g3": {
+    "G3": 1.0,
+    "G1": 0.81,
+    "G2": 0.91,
+    "failures": -0.38,
+    "studytime": 0.16,
+    "absences": -0.05,
+    "goout": -0.1,
+    "Dalc": -0.13,
+    "Walc": -0.12,
+    "freetime": -0.06,
+    "health": -0.08,
+    "parent_edu": 0.2
+  },
+  "alcohol": [
+    {
+      "alcohol_level": "低",
+      "n": 573,
+      "high_rate": 18.7,
+      "g3_mean": 11.8
+    },
+    {
+      "alcohol_level": "中",
+      "n": 277,
+      "high_rate": 23.8,
+      "g3_mean": 11.3
+    },
+    {
+      "alcohol_level": "高",
+      "n": 194,
+      "high_rate": 29.4,
+      "g3_mean": 10.2
+    }
+  ]
+}

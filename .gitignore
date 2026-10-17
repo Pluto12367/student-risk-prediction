@@ -5,6 +5,8 @@ mlruns/
 mlflow.db
 mlartifacts/
 reports/figures/
+reports/dq_figures/
+reports/an_figures/
 
 # Python
 __pycache__/
@@ -16,3 +18,4 @@ venv/
 .idea/
 .vscode/
 .DS_Store
+_msg.txt

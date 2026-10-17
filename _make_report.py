@@ -115,7 +115,15 @@ def h1(doc, text):
     bottom.set(qn("w:sz"), "8")
     bottom.set(qn("w:color"), "404040")
     pbdr.append(bottom)
-    pPr.append(pbdr)
+    # OOXML schema 要求 pBdr 位于 spacing/ind/jc 之前, 否则 Word 判定文档损坏
+    pPr.insert_element_before(
+        pbdr, "w:shd", "w:tabs", "w:suppressAutoHyphens", "w:kinsoku",
+        "w:wordWrap", "w:overflowPunct", "w:topLinePunct", "w:autoSpaceDE",
+        "w:autoSpaceDN", "w:bidi", "w:adjustRightInd", "w:snapToGrid",
+        "w:spacing", "w:ind", "w:contextualSpacing", "w:mirrorIndents",
+        "w:suppressOverlap", "w:jc", "w:textDirection", "w:textAlignment",
+        "w:textboxTightWrap", "w:outlineLvl", "w:divId", "w:cnfStyle",
+        "w:rPr", "w:sectPr", "w:pPrChange")
     return p
 
 
@@ -161,10 +169,10 @@ def note_box(doc, title, items, color="4A6FA5", fill="EAF1F8"):
     shd.set(qn("w:val"), "clear")
     tc.append(shd)
     borders = OxmlElement("w:tcBorders")
-    for side, sz in (("top", "4"), ("bottom", "4"), ("right", "4")):
+    for side in ("top", "bottom", "right"):
         el = OxmlElement(f"w:{side}")
         el.set(qn("w:val"), "single")
-        el.set(qn("w:sz"), sz)
+        el.set(qn("w:sz"), "4")
         el.set(qn("w:color"), fill)
         borders.append(el)
     left = OxmlElement("w:left")
@@ -172,7 +180,11 @@ def note_box(doc, title, items, color="4A6FA5", fill="EAF1F8"):
     left.set(qn("w:sz"), "24")
     left.set(qn("w:color"), color)
     borders.append(left)
-    tc.append(borders)
+    # OOXML schema 要求 tcBorders 位于 shd 之前
+    tc.insert_element_before(
+        borders, "w:shd", "w:noWrap", "w:tcMar", "w:textDirection",
+        "w:tcFitText", "w:vAlign", "w:hideMark", "w:headers", "w:cellIns",
+        "w:cellDel", "w:cellMerge", "w:tcPrChange")
     cell.paragraphs[0].text = ""
     p0 = cell.paragraphs[0]
     style_run(p0.add_run(title), 10.5, True, color)
@@ -256,6 +268,18 @@ def setup(doc):
         r._r.append(el)
     style_run(ftr.add_run(" 页"), 9)
     st = doc.styles["Normal"]
+    # 打开文档时自动更新域(目录页码等), 免去手动"更新域"
+    settings_elm = doc.settings._element
+    upd = OxmlElement("w:updateFields")
+    upd.set(qn("w:val"), "true")
+    for tag in ("w:hdrShapeDefaults", "w:footnotePr", "w:endnotePr",
+                "w:compat", "w:docVars", "w:rsids"):
+        el = settings_elm.find(qn(tag))
+        if el is not None:
+            el.addprevious(upd)
+            break
+    else:
+        settings_elm.append(upd)
     st.font.name = ASCII
     st.font.size = Pt(12)
     st.element.rPr.rFonts.set(qn("w:eastAsia"), EA)
